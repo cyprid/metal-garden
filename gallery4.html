@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SilverGarden</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Main navigation and gallery buttons styling */
+      .gallery-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+        margin: 40px 0;
+      }
+
+      .image-button {
+        text-align: center;
+        position: relative;
+      }
+
+      .image-label-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .image-label-wrapper img {
+        display: block;
+        width: 170px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .label {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #333;
+        font-size: 14px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        pointer-events: none;
+      }
+
+      /* Gallery grid styling */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+      }
+
+      .gallery-item {
+        position: relative;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item img:hover {
+        transform: scale(1.03);
+      }
+
+      .gallery-item p {
+        margin-top: 8px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      /* Modal styling */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 80%;
+        max-height: 80vh;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        text-align: center;
+        color: white;
+        padding: 10px 0;
+        height: 40px;
+      }
+
+      /* Close button */
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#">email</a>
+        <a href="#">CV</a>
+        <a href="resume.html">resume</a>
+        <a href="#">about</a>
+      </nav>
+    </header>
+   <div class="header">
+      <h1>Sable Bellew</h1>
+    <main>
+      <!-- Gallery navigation buttons -->
+      <div class="gallery-buttons">
+        <div class="image-button">
+          <a href="gallery1.html">
+            <div class="image-label-wrapper">
+              <span class="label">Jewelery</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarT.png?v=1746904268164"
+                alt="Gallery 1"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarT.png?v=1746904268164"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarframe.png?v=1746903725178"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery2.html">
+            <div class="image-label-wrapper">
+              <span class="label">Illustration</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/palet.png?v=1747170988303"
+                alt="Gallery 2"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/palet.png?v=1747170988303"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/paletT.png?v=1747170990610"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery3.html">
+            <div class="image-label-wrapper">
+              <span class="label">Painting</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairF.png?v=1746981359762"
+                alt="Gallery 3"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairF.png?v=1746981359762"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairT.png?v=1746981364967"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery4.html">
+            <div class="image-label-wrapper">
+              <span class="label">Deuterostome</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudist2.png?v=1747075591069"
+                alt="Gallery 4"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudist2.png?v=1747075591069"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudistT.png?v=1747075593084"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+
+      
+      <!-- Example gallery images with modal functionality -->
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/cover.jpg?v=1747084363641" alt="Artwork 1">
+          <p>1</p>
+        </div>
+        
+        <!-- Add more gallery items as needed -->
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p2.jpg?v=1747084365956" alt="Artwork 2">
+          <p>2</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p2bb.jpg?v=1747084369273" alt="Artwork 2">
+          <p>3</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p3%2B.jpg?v=1747084371379" alt="Artwork 2">
+          <p>4</p>
+        </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p3b.jpg?v=1747084372971" alt="Artwork 2">
+          <p>5</p>
+        </div>
+           <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p4.jpg?v=1747084374434" alt="Artwork 2">
+          <p>6</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p4bb.jpg?v=1747084376214" alt="Artwork 2">
+          <p>7</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p5.jpg?v=1747084377713" alt="Artwork 2">
+          <p>8</p>
+        </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p5b.jpg?v=1747084380474" alt="Artwork 2">
+          <p>9</p>
+        </div>
+           <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p6b.jpg?v=1747084387825" alt="Artwork 2">
+          <p>10</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p7.jpg?v=1747084389788" alt="Artwork 2">
+          <p>11</p>
+        </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p7b.jpg?v=1747084391244" alt="Artwork 2">
+          <p>12</p>
+        </div>
+           <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p8.jpg?v=1747084392918" alt="Artwork 2">
+          <p>13</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p8b.jpg?v=1747084394554" alt="Artwork 2">
+          <p>14</p>
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p9.jpg?v=1747084396558" alt="Artwork 2">
+          <p>15</p>
+        </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p9b.jpg?v=1747084398200" alt="Artwork 2">
+          <p>16</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p10.jpg?v=1747084399587" alt="Artwork 2">
+          <p>17</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p10b.jpg?v=1747084401294" alt="Artwork 2">
+          <p>18</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p11.jpg?v=1747084403050" alt="Artwork 2">
+          <p>19</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p12.jpg?v=1747084406145" alt="Artwork 2">
+          <p>20</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p12b.jpg?v=1747084409052" alt="Artwork 2">
+          <p>21</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p13.jpg?v=1747084410628" alt="Artwork 2">
+          <p>22</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p13b.jpg?v=1747084412127" alt="Artwork 2">
+          <p>23</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p14.jpg?v=1747084415237" alt="Artwork 2">
+          <p>24</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p14b.jpg?v=1747084421108" alt="Artwork 2">
+          <p>25</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p15.jpg?v=1747084422460" alt="Artwork 2">
+          <p>26</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p15b.jpg?v=1747084424137" alt="Artwork 2">
+          <p>27</p>
+           </div> 
+        <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p16.jpg?v=1747084425618" alt="Artwork 2">
+          <p>28</p>         
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p16b.jpg?v=1747084427978" alt="Artwork 2">
+          <p>29</p>         
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p17.jpg?v=1747084429573" alt="Artwork 2">
+          <p>30</p>         
+        </div>
+         <div class="gallery-item">
+          <img class="modal-opener" src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/p17b.jpg?v=1747084431321" alt="Artwork 2">
+          <p>31</p>         
+        </div>
+   
+          
+        </div>
+      </div>
+    </main>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+      <div id="caption"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

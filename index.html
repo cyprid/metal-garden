@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SilverGarden</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+           body {
+        background-image: url('https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/IMG0095%20(2).jpg?v=1747340772615');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        /* Add a semi-transparent overlay to improve readability */
+        background-color: rgba(255, 255, 255, 0.85);
+        background-blend-mode: overlay;
+      }
+      .gallery-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 70px;
+        margin: 40px 0;
+      }
+
+      .image-button {
+        text-align: center;
+        position: relative;
+      }
+
+      .image-label-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .image-label-wrapper img {
+        display: block;
+        width: 170px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .label {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        color: ##2d2d27;
+        font-size: 14px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+   <p><a href="mailto:sablebellew@gmail.com">email</a></p>
+        <a href="#">CV</a>
+        <a href="resume.html">resume</a>
+        <a href="#">about</a>
+      </nav>
+    </header>
+    <div class="header">
+      <h1>Sable Bellew</h1>
+      
+   
+         
+      </p>
+    </div>
+
+    <main>
+      <div class="gallery-buttons">
+        <div class="image-button">
+          <a href="gallery1.html">
+            <div class="image-label-wrapper">
+              <span class="label">Jewelery</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarT.png?v=1746904268164"
+                alt="Gallery 1"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarT.png?v=1746904268164"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/woodstarframe.png?v=1746903725178"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery2.html">
+            <div class="image-label-wrapper">
+              <span class="label">Illustration</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/palet.png?v=1747170988303"
+                alt="Gallery 2"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/palet.png?v=1747170988303"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/paletT.png?v=1747170990610"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery3.html">
+            <div class="image-label-wrapper">
+              <span class="label">Painting</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairF.png?v=1746981359762"
+                alt="Gallery 3"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairF.png?v=1746981359762"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/crosshairT.png?v=1746981364967"
+              />
+            </div>
+          </a>
+        </div>
+
+        <div class="image-button">
+          <a href="gallery4.html">
+            <div class="image-label-wrapper">
+              <span class="label">Deuterostome</span>
+              <img
+                src="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudist2.png?v=1747075591069"
+                alt="Gallery 4"
+                data-default="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudist2.png?v=1747075591069"
+                data-hover="https://cdn.glitch.global/cab32a10-c938-4b3f-b2cf-bbcc3f9d5148/rudistT.png?v=1747075593084"
+              />
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".image-button img").forEach((img) => {
+          const defaultSrc = img.dataset.default;
+          const hoverSrc = img.dataset.hover;
+
+          img.addEventListener("mouseover", () => {
+            img.src = hoverSrc;
+          });
+
+          img.addEventListener("mouseout", () => {
+            img.src = defaultSrc;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
